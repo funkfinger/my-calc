@@ -8,7 +8,7 @@
 
 CRGBArray<NUM_LEDS> leds;
 
-LiquidCrystal_I2C lcd(0x01,16,2);  // set the LCD address to 0x27 for a 16 chars and 2 line display
+LiquidCrystal_I2C lcd(0x27,16,2);  // set the LCD address to 0x27 for a 16 chars and 2 line display
 
 const byte rom[] PROGMEM = { // HP35-ROM, 768 words
   0, 221, 2, 255, 2, 36, 0, 23, 1, 68, 2, 68, 0, 132, 1, 16, 2, 209, 3, 251, 0, 95, 0, 195, 1, 168,
@@ -462,17 +462,11 @@ void process_rom(void) { // Process key with HP35-engine
 
 
 void setup() {
-  lcd.init(); // initialize the lcd 
+  lcd.init();                      // initialize the lcd 
   // Print a message to the LCD.
   lcd.backlight();
-  lcd.setCursor(3,0);
-  lcd.print("Hello, world!");
-  lcd.setCursor(2,1);
-  lcd.print("Ywrobot Arduino!");
-   lcd.setCursor(0,2);
-  lcd.print("Arduino LCM IIC 2004");
-   lcd.setCursor(2,3);
-  lcd.print("Power By Ec-yuan!");
+  lcd.setCursor(0,0);
+  lcd.print("Hello, calc!");
   delay(5000);
   Serial.begin(9600);
   Serial.println("Calculator Start");
